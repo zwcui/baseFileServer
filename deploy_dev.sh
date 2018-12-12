@@ -44,14 +44,14 @@ fi
 ssh  root@106.14.202.179 version=$version httpport=$httpport runmode=$runmode 'bash -se' <<'ENDSSH'
 cd ~/app/api/baseFileServer/dev/baseFileServer
 git pull;
-echo baseFileServer\_$runmode
+echo basefileserver\_$runmode
 #go clean;
-if docker build -t baseFileServer\_$runmode:$version .
+if docker build -t basefileserver\_$runmode:$version .
 then
     echo "stop and rm old container,start new one..."
-#    docker stop baseFileServer\_$runmode
-#    docker rm baseFileServer\_$runmode
-    docker run --restart=always --name  -v /data/baseFileServer:/go/src/baseFileServer/data baseFileServer\_$runmode -d -p $httpport:8088 baseFileServer\_$runmode:$version
+#    docker stop basefileserver\_$runmode
+#    docker rm basefileserver\_$runmode
+    docker run --restart=always --name  -v /data/baseFileServer:/go/src/baseFileServer/data basefileserver\_$runmode -d -p $httpport:8088 basefileserver\_$runmode:$version
     docker ps
 fi
 ENDSSH
