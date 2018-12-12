@@ -28,6 +28,9 @@ func init(){
 /*
 	1. 文件服务器，http://localhost:8088 访问页面进行上传，一次不超过10个文件
 	2. 相关路径端口等配置在上方，docker部署注意路径的挂载
+	3. 上传参数中有uri，则按指定路径上传
+	4. .apk文件上传时不修改文件名，其他以uuid作为文件名
+	5. 如果安装了ffmpeg，则可以转文件格式
  */
 func main() {
 	if len(os.Args) > 1 && os.Args[1] == "-v" {
