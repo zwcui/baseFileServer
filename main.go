@@ -10,9 +10,6 @@ import (
 	"github.com/astaxie/beego"
 )
 
-
-const VERSION = "1.0"
-
 //var viewsDirectory string
 //var UploadDirectory string
 var port string
@@ -34,7 +31,7 @@ func init(){
  */
 func main() {
 	if len(os.Args) > 1 && os.Args[1] == "-v" {
-		fmt.Println("Version " + VERSION)
+		fmt.Println("Version " + beego.AppConfig.String("version"))
 		os.Exit(0)
 	}
 
