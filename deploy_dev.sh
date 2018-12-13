@@ -49,8 +49,8 @@ echo basefileserver\_$runmode
 if docker build -t basefileserver\_$runmode:$version .
 then
     echo "stop and rm old container,start new one..."
-#    docker stop basefileserver\_$runmode
-#    docker rm basefileserver\_$runmode
+    docker stop basefileserver\_$runmode
+    docker rm basefileserver\_$runmode
     docker run --restart=always --name basefileserver\_$runmode -v /data/baseFileServer:/go/src/baseFileServer/data -d -p $httpport:8088 basefileserver\_$runmode:$version
     docker ps
 fi
