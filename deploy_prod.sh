@@ -32,7 +32,7 @@ fi
 
 echo $httpport
 
-default_runmode="dev"
+default_runmode="prod"
 runmode=`awk '$1=="runmode" {print $3}' ./conf/app.conf`
 
 if [ $default_runmode != $runmode ]
@@ -42,7 +42,7 @@ then
 fi
 
 ssh  root@106.14.202.179 version=$version httpport=$httpport runmode=$runmode 'bash -se' <<'ENDSSH'
-cd ~/app/api/baseFileServer/dev/baseFileServer
+cd ~/app/api/baseFileServer/prod/baseFileServer
 git pull;
 echo basefileserver\_$runmode
 #go clean;
