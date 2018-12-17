@@ -44,7 +44,7 @@
                     if (this.status == 200) {
                         var datastr = this.responseText;
                         var strjson = $.parseJSON(datastr);
-                        $(".uploadImg>img").attr('src',location.protocol+'//'+location.host + '/file'+strjson.data[0].uri);
+                        $(".uploadImg>img").attr('src',location.protocol+'//'+location.hostname + '/file'+strjson.data[0].uri);
                         $(".imgsrc").text(strjson.data[0].uri);
                     }
                 };
